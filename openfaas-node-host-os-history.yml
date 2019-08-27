@@ -1,0 +1,11 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://172.27.0.2:31112
+functions:
+  openfaas-node-host-os-history:
+    lang: node10-express
+    handler: ./openfaas-node-host-os-history
+    image: 172.27.0.225:8089/openfaas/openfaas-node-host-os-history:latest
+    secrets:
+    - openfaas-harbor
