@@ -12,7 +12,7 @@ node {
 
     stage('Build') {
         try {
-            sh './faas-cli build -f openfaas-*.yml '
+            sh 'faas-cli build -f openfaas-*.yml '
         } catch(e) {
             mail subject: "Jenkins Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) failed with ${e.message}",
                 to: 'yonghui.park@kt.com',
@@ -33,7 +33,7 @@ node {
 
     stage('Push') {
         try {
-            sh './faas-cli push -f openfaas-*.yml '
+            sh 'faas-cli push -f openfaas-*.yml '
         } catch(e) {
             mail subject: "Jenkins Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) failed with ${e.message}",
                 to: 'yonghui.park@kt.com',
@@ -43,7 +43,7 @@ node {
     }
     stage('Deploy') {
         try {
-            sh './faas-cli deploy -f openfaas-*.yml '
+            sh 'faas-cli deploy -f openfaas-*.yml '
         } catch(e) {
             mail subject: "Jenkins Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) failed with ${e.message}",
                 to: 'yonghui.park@kt.com',
