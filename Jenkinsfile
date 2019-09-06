@@ -13,5 +13,15 @@ node {
 
     }
 
+    stage('Push') {
 
+            sh 'faas-cli push -f openfaas-*.yml '
+
+    }
+
+    stage('Deploy') {
+
+            sh 'faas-cli deploy -f openfaas-*.yml '
+
+    }
 }
