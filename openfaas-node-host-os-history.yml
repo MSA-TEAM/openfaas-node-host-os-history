@@ -1,11 +1,10 @@
 version: 1.0
 provider:
   name: openfaas
-  gateway: http://172.27.0.2:31112
+ # gateway: http://kubernetes.docker.internal:31112
+  gateway: http://192.168.99.100:31112
 functions:
   openfaas-node-host-os-history:
     lang: node10-express
     handler: ./openfaas-node-host-os-history
-    image: 172.27.0.225:8089/openfaas/openfaas-node-host-os-history:latest
-    secrets:
-    - openfaas-harbor
+    image: twinspark81/openfaas-node-host-os-history:latest
